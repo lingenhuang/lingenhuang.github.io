@@ -7,6 +7,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -99,7 +100,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #242943;
+		background: rgb(47,70,110);
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -1957,7 +1958,7 @@ input, select, textarea {
 
 		select option {
 			color: #ffffff;
-			background: #242943;
+			background: rgb(47,70,110)3;
 		}
 
 		select:focus::-ms-value {
@@ -2043,7 +2044,7 @@ input, select, textarea {
 			background: #ffffff;
 			border-color: #9bf1ff;
 			content: '\f00c';
-			color: #242943;
+			color:#2f4661;
 		}
 
 		input[type="checkbox"]:focus + label:before,
@@ -2135,7 +2136,7 @@ input, select, textarea {
 		.icon.alt:before {
 			background-color: #ffffff;
 			border-radius: 100%;
-			color: #242943;
+			color: rgb(47,70,110);
 			display: inline-block;
 			height: 2em;
 			line-height: 2em;
@@ -2398,12 +2399,12 @@ input, select, textarea {
 
 				ul.pagination li > .page.active {
 					background-color: #ffffff;
-					color: #242943;
+					color:#2f4661;
 				}
 
 					ul.pagination li > .page.active:hover {
 						background-color: #9bf1ff;
-						color: #242943 !important;
+						color:#2f4661 !important;
 					}
 
 					ul.pagination li > .page.active:active {
@@ -2673,7 +2674,7 @@ input, select, textarea {
 		.button.primary {
 			background-color: #ffffff;
 			box-shadow: none;
-			color: #242943;
+			color:rgb(47,70,110);
 		}
 
 			input[type="submit"].primary:hover, input[type="submit"].primary:active,
@@ -2686,7 +2687,7 @@ input, select, textarea {
 			.button.primary:hover,
 			.button.primary:active {
 				background-color: #9bf1ff;
-				color: #242943 !important;
+				color:rgb(47,70,110) !important;
 			}
 
 			input[type="submit"].primary:active,
@@ -2752,7 +2753,7 @@ input, select, textarea {
 			min-height: 23em;
 			overflow: hidden;
 			position: relative;
-			width: 40%;
+			width: 100%; /*遮罩大小*/
 		}
 
 			.tiles article .image {
@@ -2765,7 +2766,7 @@ input, select, textarea {
 			}
 
 			.tiles article h3 {
-				font-size: 1.75em;
+				font-size: 2em;
 			}
 
 				.tiles article h3 a:hover {
@@ -2792,7 +2793,7 @@ input, select, textarea {
 				display: block;
 				height: 100%;
 				left: 0;
-				opacity: 0.85;
+				opacity: 0.5; /*遮罩透明度*/
 				position: absolute;
 				width: 100%;
 				z-index: 2;
@@ -2827,32 +2828,32 @@ input, select, textarea {
 			}
 
 			.tiles article:nth-child(4n - 1), .tiles article:nth-child(4n - 2) {
-				width: 60%;
+				width: 100%; /*遮罩大小*/
 			}
 
-			.tiles article:nth-child(6n - 5):before {
-				background-color: #6fc3df;
+			.tiles article:nth-child(6n - 5):before { /*改遮罩顏色*/
+				background-color: #6fa1cf;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #8d82c4;
+				background-color: #b47cdd;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
-				background-color: #ec8d81;
+				background-color: #e4a198;
 			}
 
 			.tiles article:nth-child(6n - 2):before {
-				background-color: #e7b788;
+				background-color: #e6b98d;
 			}
 
 			.tiles article:nth-child(6n - 1):before {
-				background-color: #8ea9e8;
+				background-color: #8aa4e0;
 			}
 
 			.tiles article:nth-child(6n):before {
-				background-color: #87c5a4;
-			}
+				background-color: #a1f3c7;
+			} 
 
 		@media screen and (max-width: 1280px) {
 
@@ -2900,6 +2901,7 @@ input, select, textarea {
 				}
 
 		}
+		
 
 /* Contact Method */
 
@@ -3145,7 +3147,7 @@ input, select, textarea {
 				-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 				background-color: #ffffff;
-				color: #242943;
+				color: rgb(47,70,110);
 				display: inline-block;
 				line-height: 1.65em;
 				margin-right: 0.325em;
@@ -3259,7 +3261,7 @@ input, select, textarea {
 		}
 
 			#header.alt.style1 .logo strong {
-				color: #6fc3df;
+				color: #023812;
 			}
 
 			#header.alt.style2 .logo strong {
@@ -3410,7 +3412,7 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			pointer-events: none;
-			background-color: #242943;
+			background-color:rgb(47,70,110);
 			content: '';
 			display: block;
 			height: 100%;
@@ -3491,23 +3493,23 @@ input, select, textarea {
 			}
 
 		#banner.style1:after {
-			background-color: #6fc3df;
+			background-color: #ebe71d;
 		}
 
 		#banner.style2:after {
-			background-color: #8d82c4;
+			background-color: #0ebb50;
 		}
 
 		#banner.style3:after {
-			background-color: #ec8d81;
+			background-color: rgb(14, 86, 99);
 		}
 
 		#banner.style4:after {
-			background-color: #e7b788;
+			background-color: #fc8f00;
 		}
 
 		#banner.style5:after {
-			background-color: #8ea9e8;
+			background-color: rgb(230, 73, 73);
 		}
 
 		#banner.style6:after {
@@ -3589,7 +3591,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #2a2f4a;
+		background-color: rgb(47,70,110);
 	}
 
 		#main > * {
