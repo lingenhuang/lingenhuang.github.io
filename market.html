@@ -2,101 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src = "http://d3js.org/d3.v3.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.stock.min.js"></script>
 <script type="text/javascript">
-window.onload = function () {  
-  var stockChart = new CanvasJS.StockChart("chartContainer",{
-    title:{
-      text:"StockChart with Numeric Axis"
-    },
-    animationEnabled: true,
-    exportEnabled: true,
-    charts: [{
-      axisX: {
-        crosshair: {
-          enabled: true,
-          snapToDataPoint: true
-        }
-      },
-      axisY: {
-        crosshair: {
-          enabled: true,
-          //snapToDataPoint: true
-        }
-      },
-      data: data
-    }],    
-    rangeSelector: {
-      inputFields: {
-        startValue: 4000,
-        endValue: 6000,
-        valueFormatString: "###0"
-      },
-      
-      buttons: [{
-        label: "1000",
-        range: 1000,
-        rangeType: "number"
-      },{
-        label: "2000",
-        range: 2000,
-        rangeType: "number"
-      },{
-        label: "5000",
-        range: 5000,
-        rangeType: "number"
-      },{
-        label: "All",        
-        rangeType: "all"
-      }]
+var company = [];
+  for(var j =0;j<30;j++){
+    company[j] = [];
+  }
+   getdata();
+
+async function getdata(){
+  var i=0;
+  const response = await fetch('train_2019_06(2019 Q1).csv');
+  const data = await response.text();
+  const rows = data.split('\n');
+  rows.forEach(elt => {
+    const row = elt.split(',');
+    for(var j=0; j<30; j++){
+      company[j][i]=row[j];
+    //console.log(row[22]);
+    //console.log(i)
+      if(i>0)
+        company[j][i] = parseFloat(company[j][i]);
     }
-  });
-
-  stockChart.render();    
+    //console.log(row[0]);
+    //console.log(row[1]);
+    i++;
+  })
+  drawChart();
 }
 
-var limit = 10000;    //increase number of dataPoints by increasing this
-var y = 1000;
-var data = []; var dataSeries = { type: "spline" };
-var dataPoints = [];
-for (var i = 0; i < limit; i += 1) {
-  y += Math.round((Math.random() * 10 - 5));
-  dataPoints.push({ x: i, y: y });
+function drawChart(){
+  var limit = 21;    //increase number of dataPoints by increasing this
+  var y = 0;
+  var data = []; var dataSeries = { type: "spline" };
+  var dataPoints = [];
+  for (var i = 1; i < limit; i += 1) {
+    y  = company[0][i];
+    dataPoints.push({ x: i, y: y });
+  }
+  dataSeries.dataPoints = dataPoints;
+  data.push(dataSeries);
+    var stockChart = new CanvasJS.StockChart("chartContainer",{
+      title:{
+        text:"StockChart with Numeric Axis"
+      },
+      animationEnabled: true,
+      exportEnabled: true,
+      charts: [{
+        axisX: {
+          crosshair: {
+            enabled: true,
+            snapToDataPoint: true
+          }
+        },
+        axisY: {
+          crosshair: {
+            enabled: true,
+            //snapToDataPoint: true
+          }
+        },
+        data: data
+      }],    
+      rangeSelector: {
+        inputFields: {
+          startValue: 0,
+          endValue: 20,
+          valueFormatString: "###0"
+        },
+        
+        buttons: [{
+          label: "All",        
+          rangeType: "all"
+        }]
+      }
+    });
+
+    stockChart.render();    
 }
-dataSeries.dataPoints = dataPoints;
-data.push(dataSeries);
+
+function start(){
+  getdata();
+}
+window.addEventListener("load", start, false);
+  
+ 
+   
 </script>
 </head>
 
 <body style="background-color:rgb(47,70,110) " >
     
-<script>
-  var company = [];
-  for(var j =0;j<30;j++){
-    company[j] = [];
-  }
-  var i=0;
-getdata();
-async function getdata(){
-  const response = await fetch('train_2019_06(2019 Q1).csv');
-  const data = await response.text();
-  console.log(data);
-  const rows = data.split('\n');
-  rows.forEach(elt => {
-    const row = elt.split(',');
-    console.log(row);
-    for(var j=0; j<30; j++)
-    company[j][i]=row[j];
-    //console.log(row[0]);
-    //console.log(row[1]);
-    i++;
-  })
-  
-}
 
-</script>
     <center><div id="chartContainer" style="height: 400px; width: 70%;"></div></center>
     <center><table id="fruit_table" style="height: 150px; width: 70%;">
         <caption>今日股價</caption>
